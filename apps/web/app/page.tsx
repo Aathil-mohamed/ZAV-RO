@@ -1,91 +1,77 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { api } from "@/lib/api";
+import StageClient from "@/components/StageClient";
+import type { Garment } from "@/store/stage";
 
-interface PingResponse {
-  ok: boolean;
-  message?: string;
+async function getCatalog(gender: "men" | "women"): Promise<Garment[]> {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+  try {
+    const res = await fetch(`${apiUrl}/api/catalog/${gender}`, {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) {
+      console.error(`Catalog fetch failed with status ${res.status}`);
+      return [];
+    }
+    return res.json();
+  } catch (err) {
+    console.error("Error fetching catalog from API:", err);
+    return [];
+  }
 }
 
-export default function Home() {
-  const [apiStatus, setApiStatus] = useState<string>("checking...");
-  const [isOk, setIsOk] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    api<PingResponse>("/api/ping")
-      .then((data) => {
-        if (data.ok) {
-          setApiStatus("Connected to Laravel API (GET /api/ping -> ok: true)");
-          setIsOk(true);
-        } else {
-          setApiStatus("API returned non-ok status");
-          setIsOk(false);
-        }
-      })
-      .catch((err) => {
-        setApiStatus(`Error connecting to API: ${err.message}`);
-        setIsOk(false);
-      });
-  }, []);
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: { gender?: string };
+}) {
+  const gender = searchParams?.gender === "women" ? "women" : "men";
+  const garments = await getCatalog(gender);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-neutral-950 text-neutral-100 font-sans">
-      <div className="max-w-xl w-full p-8 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-2xl flex flex-col items-center text-center">
-        <div className="relative w-24 h-24 mb-4">
-          <Image
-            src="/branding/zavero-icon-512.png"
-            alt="ZAVÉRO Logo"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-        <h1 className="text-3xl font-bold tracking-tight mb-2">ZAVÉRO Store</h1>
-        <p className="text-sm text-neutral-400 mb-6">
-          Phase 0: Architecture & Infrastructure Setup
-        </p>
-
-        <div className="w-full p-4 rounded-xl bg-neutral-950 border border-neutral-800 text-left mb-6">
-          <div className="text-xs uppercase tracking-wider text-neutral-500 font-semibold mb-2">
-            API Health Check
-          </div>
-          <div className="flex items-center gap-2">
-            <span
-              className={`inline-block w-3 h-3 rounded-full ${
-                isOk === true
-                  ? "bg-emerald-500 animate-pulse"
-                  : isOk === false
-                  ? "bg-rose-500"
-                  : "bg-amber-500 animate-ping"
-              }`}
+    <main className="relative min-h-[100svh] w-full overflow-hidden bg-neutral-950">
+      {/* Top Navigation Bar */}
+      <header className="fixed top-4 left-0 right-0 z-30 flex items-center justify-between px-6 pointer-events-none">
+        {/* Brand Logo */}
+        <div className="flex items-center gap-2 pointer-events-auto">
+          <div className="relative size-8">
+            <Image
+              src="/branding/zavero-icon-512.png"
+              alt="ZAVÉRO"
+              fill
+              className="object-contain"
+              priority
             />
-            <span className="text-sm font-mono text-neutral-200">
-              {apiStatus}
-            </span>
           </div>
+          <span className="text-sm font-bold tracking-widest text-white uppercase drop-shadow-md">
+            ZAVÉRO
+          </span>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 w-full text-xs text-neutral-400">
-          <div className="p-3 rounded-lg bg-neutral-800/50 border border-neutral-800 text-left">
-            <div className="font-semibold text-neutral-200">Web App</div>
-            <div>Next.js 14.2 (App Router)</div>
-          </div>
-          <div className="p-3 rounded-lg bg-neutral-800/50 border border-neutral-800 text-left">
-            <div className="font-semibold text-neutral-200">Backend API</div>
-            <div>Laravel 11 + Sanctum</div>
-          </div>
-          <div className="p-3 rounded-lg bg-neutral-800/50 border border-neutral-800 text-left">
-            <div className="font-semibold text-neutral-200">Try-On Service</div>
-            <div>FastAPI (Python 3.14)</div>
-          </div>
-          <div className="p-3 rounded-lg bg-neutral-800/50 border border-neutral-800 text-left">
-            <div className="font-semibold text-neutral-200">Storage & Cache</div>
-            <div>MinIO S3 + Redis</div>
-          </div>
-        </div>
-      </div>
+        {/* Gender Toggle Pill */}
+        <nav className="flex gap-1 rounded-full bg-neutral-900/80 p-1 backdrop-blur-md border border-neutral-700/50 shadow-lg pointer-events-auto">
+          {(["men", "women"] as const).map((g) => (
+            <Link
+              key={g}
+              href={`/?gender=${g}`}
+              scroll={false}
+              className={`rounded-full px-5 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all ${
+                g === gender
+                  ? "bg-white text-black shadow"
+                  : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {g === "men" ? "Men" : "Women"}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Right spacing placeholder */}
+        <div className="w-20 hidden md:block" />
+      </header>
+
+      {/* Main Interactive Stage & Bag Drawer */}
+      <StageClient gender={gender} garments={garments} />
     </main>
   );
 }
