@@ -1,10 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/store/cart";
 
 export default function BagDrawer() {
-  const { open, lines, toggle, setQty, remove, subtotalCents } = useCart();
+  const { open, lines: rawLines, toggle, setQty, remove, subtotalCents } = useCart();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const lines = mounted ? rawLines : [];
+  const subtotal = mounted ? subtotalCents() : 0;
 
   return (
     <>
@@ -129,7 +134,7 @@ export default function BagDrawer() {
           <div className="flex justify-between text-sm">
             <span className="text-neutral-600 dark:text-neutral-400">Subtotal</span>
             <span className="font-bold text-neutral-900 dark:text-neutral-100">
-              ${(subtotalCents() / 100).toFixed(2)}
+              ${(subtotal / 100).toFixed(2)}
             </span>
           </div>
           <button
