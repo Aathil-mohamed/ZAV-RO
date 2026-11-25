@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useStage } from "@/store/stage";
+import { formatMoney } from "@/lib/money";
 
 export default function ThumbRail() {
   const { garments, index, go } = useStage();
@@ -38,7 +39,7 @@ export default function ThumbRail() {
           {g.name}
         </p>
         <p className="text-[10px] font-medium text-neutral-500 dark:text-neutral-400">
-          ${(g.priceCents / 100).toFixed(2)}
+          {formatMoney(g.priceCents)}
         </p>
       </button>
     );

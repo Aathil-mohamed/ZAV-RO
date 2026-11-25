@@ -252,7 +252,7 @@ class CatalogSeeder extends Seeder
                     'category_id' => $category->id,
                     'name' => $item['name'],
                     'description' => "Luxury tailored {$item['name']} crafted from heavyweight organic materials with precision detailing.",
-                    'price_cents' => $item['price_cents'],
+                    'price_cents' => $item['price_cents'] * 300,
                     'thumb_url' => $thumbUrl,
                     'customizable' => $item['customizable'],
                     'active' => true,

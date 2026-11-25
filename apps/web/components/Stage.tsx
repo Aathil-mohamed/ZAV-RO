@@ -10,6 +10,7 @@ import ThumbRail from "./ThumbRail";
 import TryOnDialog from "./TryOnDialog";
 import AuthDialog from "./AuthDialog";
 import SizeFinder from "./SizeFinder";
+import { formatMoney } from "@/lib/money";
 
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 
@@ -297,7 +298,7 @@ export default function Stage() {
             {garment.name}
           </p>
           <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            ${(garment.priceCents / 100).toFixed(2)} · {variant.color}
+            {formatMoney(garment.priceCents)} · {variant.color}
           </p>
         </div>
 

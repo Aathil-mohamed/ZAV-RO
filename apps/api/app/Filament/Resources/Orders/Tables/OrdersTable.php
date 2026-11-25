@@ -18,12 +18,13 @@ class OrdersTable
         return $table
             ->defaultSort('id', 'desc')
             ->columns([
-                TextColumn::make('id')->label('#')->sortable(),
+                TextColumn::make('order_number')->label('Order #')->searchable()->sortable(),
                 TextColumn::make('email')->searchable(),
                 TextColumn::make('status')->badge()->sortable(),
+                TextColumn::make('payment_ref')->label('PayHere Ref')->placeholder('—'),
                 TextColumn::make('total_cents')
                     ->label('Total')
-                    ->formatStateUsing(fn (int $state): string => '$' . number_format($state / 100, 2))
+                    ->formatStateUsing(fn (int $state): string => 'Rs ' . number_format($state / 100, 2))
                     ->sortable(),
                 TextColumn::make('tracking_number')->placeholder('—'),
                 TextColumn::make('created_at')->dateTime()->sortable(),

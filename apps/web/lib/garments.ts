@@ -7,18 +7,20 @@ export type GarmentDef = {
   panels: Panel[]; variants: VariantGroup[];
 };
 
+const LKR_RATE = 300; // placeholder USD-like -> LKR conversion
+
 /** Fabrics: files /fabrics/{id}.jpg are SEAMLESS GRAYSCALE weave maps (1024x1024) that tint with the chosen color. */
 export const FABRICS: Record<string, { label: string; roughness: number; priceDeltaCents: number }> = {
   cotton:    { label: "Cotton",     roughness: 0.90, priceDeltaCents: 0 },
   polyester: { label: "Polyester",  roughness: 0.60, priceDeltaCents: 0 },
-  linen:     { label: "Linen",      roughness: 0.95, priceDeltaCents: 600 },
-  denim:     { label: "Denim",      roughness: 0.85, priceDeltaCents: 500 },
-  fleece:    { label: "Fleece",     roughness: 1.00, priceDeltaCents: 400 },
-  rib_knit:  { label: "Rib knit",   roughness: 0.95, priceDeltaCents: 300 },
-  chiffon:   { label: "Chiffon",    roughness: 0.50, priceDeltaCents: 1000 },
-  velvet:    { label: "Velvet",     roughness: 1.00, priceDeltaCents: 1200 },
-  satin:     { label: "Satin",      roughness: 0.30, priceDeltaCents: 1400 },
-  silk:      { label: "Silk",       roughness: 0.35, priceDeltaCents: 1800 },
+  linen:     { label: "Linen",      roughness: 0.95, priceDeltaCents: 600 * LKR_RATE },
+  denim:     { label: "Denim",      roughness: 0.85, priceDeltaCents: 500 * LKR_RATE },
+  fleece:    { label: "Fleece",     roughness: 1.00, priceDeltaCents: 400 * LKR_RATE },
+  rib_knit:  { label: "Rib knit",   roughness: 0.95, priceDeltaCents: 300 * LKR_RATE },
+  chiffon:   { label: "Chiffon",    roughness: 0.50, priceDeltaCents: 1000 * LKR_RATE },
+  velvet:    { label: "Velvet",     roughness: 1.00, priceDeltaCents: 1200 * LKR_RATE },
+  satin:     { label: "Satin",      roughness: 0.30, priceDeltaCents: 1400 * LKR_RATE },
+  silk:      { label: "Silk",       roughness: 0.35, priceDeltaCents: 1800 * LKR_RATE },
 };
 
 /** Print patterns: files /pattern-tiles/{id}.png are seamless transparent PNG tiles (512x512) that keep their own colors. */
@@ -28,7 +30,7 @@ export const PATTERNS: { id: string; label: string }[] = [
   { id: "houndstooth", label: "Houndstooth" }, { id: "camo", label: "Camouflage" },
 ];
 
-const opt = (id: string, label: string, priceDeltaCents = 0): VariantOption => ({ id, label, priceDeltaCents });
+const opt = (id: string, label: string, priceDeltaCents = 0): VariantOption => ({ id, label, priceDeltaCents: priceDeltaCents * LKR_RATE });
 const group = (key: string, label: string, options: VariantOption[]): VariantGroup => ({ key, label, options });
 
 /** Structural variants. In the GLB each option is a node named  var__{key}__{optionId}  (see assets spec). First option = default. */
@@ -73,7 +75,7 @@ function mk(slug: string, name: string, gender: "men" | "women", ids: string[], 
       mirrorOf: mirrored ? src : undefined, allowPrint: !/trim|belt|waistband|rib|cuff|placket|buttons/.test(id),
     };
   });
-  return { slug, name, gender, model: `/models/${gender}/${slug}.glb`, basePriceCents, panels, variants };
+  return { slug, name, gender, model: `/models/${gender}/${slug}.glb`, basePriceCents: basePriceCents * LKR_RATE, panels, variants };
 }
 
 const TOP = ["front", "back", "sleeve_L", "sleeve_R"];
@@ -121,5 +123,5 @@ export function estimatePriceCents(g: GarmentDef, panels: Record<string, { fabri
   const used = new Set(Object.values(panels).map((p) => p.fabric));
   used.forEach((f) => { total += FABRICS[f]?.priceDeltaCents ?? 0; });
   const printed = Object.values(panels).filter((p) => p.layers.length > 0).length;
-  return total + Math.min(printed * 200, 1000);
+  return total + Math.min(printed * 60000, 300000);
 }

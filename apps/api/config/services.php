@@ -35,9 +35,11 @@ return [
         ],
     ],
 
-    'stripe' => [
-        'secret' => env('STRIPE_SECRET'),
-        'webhook' => env('STRIPE_WEBHOOK_SECRET'),
+    'payhere' => [
+        'mode' => env('PAYHERE_MODE', 'sandbox'),
+        'merchant_id' => env('PAYHERE_MERCHANT_ID'),
+        'secret' => env('PAYHERE_MERCHANT_SECRET'),
+        'notify_url' => env('PAYHERE_NOTIFY_URL'),
     ],
 
     'tryon' => [

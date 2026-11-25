@@ -36,7 +36,7 @@ test('pricer returns base price for default design', function () {
     $pricer = new DesignPricer();
     $design = validDesign();
     $price = $pricer->price('mens-tshirt', $design['design']);
-    expect($price)->toBe(2500); // base price
+    expect($price)->toBe(750000); // LKR base price
 });
 
 test('pricer adds sleeve variant delta', function () {
@@ -44,10 +44,10 @@ test('pricer adds sleeve variant delta', function () {
     $design = array_merge(validDesign(), []);
     $design['design']['variants']['sleeve'] = 'full';
     $price = $pricer->price('mens-tshirt', $design['design']);
-    expect($price)->toBe(2500 + 300);
+    expect($price)->toBe(750000 + 90000);
 });
 
-test('pricer caps print price at 1000 cents', function () {
+test('pricer caps print price at 300000 cents', function () {
     $pricer = new DesignPricer();
     $layer = ['type' => 'text', 'text' => 'Hi', 'font' => 'sans', 'size' => 0.1, 'color' => '#000', 'x' => 0.5, 'y' => 0.5, 'rotation' => 0];
     $panels = [];
@@ -55,7 +55,7 @@ test('pricer caps print price at 1000 cents', function () {
         $panels[$p] = ['fill' => '#ffffff', 'fabric' => 'cotton', 'layers' => [$layer]];
     }
     $price = $pricer->price('mens-tshirt', ['panels' => $panels, 'variants' => []]);
-    expect($price)->toBe(2500 + 1000); // cap
+    expect($price)->toBe(750000 + 300000); // cap
 });
 
 test('pricer validates unknown piece returns 422', function () {
@@ -75,7 +75,7 @@ test('POST /api/designs saves design and returns price', function () {
     $response->assertStatus(200)
              ->assertJsonStructure(['id', 'priceCents', 'shareToken', 'previewUrl']);
 
-    expect($response->json('priceCents'))->toBe(2500);
+    expect($response->json('priceCents'))->toBe(750000);
     expect(CustomDesign::count())->toBe(1);
 });
 
@@ -88,7 +88,7 @@ test('POST /api/designs ignores any client-sent price', function () {
     $response = $this->postJson('/api/designs', $data);
     $response->assertStatus(200);
     expect($response->json('priceCents'))->not->toBe(1);
-    expect($response->json('priceCents'))->toBe(2500);
+    expect($response->json('priceCents'))->toBe(750000);
 });
 
 test('POST /api/designs rejects unknown garment slug', function () {
