@@ -67,6 +67,8 @@ return [
 
     'public_assets_url' => env('PUBLIC_ASSETS_URL', 'http://127.0.0.1:9000/public-assets'),
 
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:3000'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

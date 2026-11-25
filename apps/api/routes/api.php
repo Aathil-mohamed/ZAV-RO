@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DesignController;
 use App\Http\Controllers\MyModelController;
 use App\Http\Controllers\SizeRecommendationController;
@@ -20,6 +22,8 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:10,1');
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('throttle:5,1');
+    Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middleware('throttle:5,1');
 });
 
 Route::get('/user', function (Request $request) {
@@ -54,3 +58,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/measurements', [SizeRecommendationController::class, 'storeMeasurements']);
     Route::delete('/measurements', [SizeRecommendationController::class, 'destroyMeasurements']);
 });
+
+// --- Phase 4: Server Cart, Checkout & Orders ---
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/merge', [CartController::class, 'merge']);
+    Route::put('/cart/items/{id}', [CartController::class, 'updateItem']);
+    Route::delete('/cart/items/{id}', [CartController::class, 'destroyItem']);
+});
+
+Route::post('/checkout', [CheckoutController::class, 'create'])->middleware('throttle:20,1');
+Route::post('/stripe/webhook', [CheckoutController::class, 'webhook']);
+Route::get('/orders/{session}', [CheckoutController::class, 'showBySession']);
