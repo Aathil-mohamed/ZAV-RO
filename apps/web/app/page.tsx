@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import StageClient from "@/components/StageClient";
+import AccountButton from "@/components/AccountButton";
 import type { Garment } from "@/store/stage";
 
 async function getCatalog(gender: "men" | "women"): Promise<Garment[]> {
@@ -66,8 +67,8 @@ export default async function Page({
           ))}
         </nav>
 
-        {/* Right spacing placeholder */}
-        <div className="w-20 hidden md:block" />
+        {/* Account Sign In / Out */}
+        <AccountButton />
       </header>
 
       {/* Main Interactive Stage & Bag Drawer */}

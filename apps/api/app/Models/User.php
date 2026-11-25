@@ -5,6 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -46,5 +48,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function modelPhoto(): HasOne
+    {
+        return $this->hasOne(ModelPhoto::class);
+    }
+
+    public function measurements(): HasOne
+    {
+        return $this->hasOne(UserMeasurement::class);
+    }
+
+    public function tryOnJobs(): HasMany
+    {
+        return $this->hasMany(TryOnJob::class);
     }
 }
