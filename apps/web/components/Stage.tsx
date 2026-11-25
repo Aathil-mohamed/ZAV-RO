@@ -24,6 +24,9 @@ export default function Stage() {
   } = useStage();
 
   const { add, toggle, count } = useCart();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const bagCount = mounted ? count() : 0;
   const [size, setSize] = useState("M");
   const touch = useRef<{ x: number; y: number } | null>(null);
   const drag = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
@@ -159,7 +162,7 @@ export default function Stage() {
         </button>
         <button
           onClick={() => toggle(true)}
-          aria-label={`Open bag, ${count()} items`}
+          aria-label={`Open bag, ${bagCount} items`}
           className="relative mt-2 flex size-11 items-center justify-center rounded-full bg-neutral-900 hover:bg-black text-white shadow-xl transition-all active:scale-95"
         >
           <svg
@@ -175,9 +178,9 @@ export default function Stage() {
               d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
             />
           </svg>
-          {count() > 0 && (
+          {bagCount > 0 && (
             <span className="absolute -top-1 -right-1 flex size-5 items-center justify-center rounded-full bg-rose-500 text-[10px] font-bold text-white shadow">
-              {count()}
+              {bagCount}
             </span>
           )}
         </button>

@@ -56,6 +56,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Public Assets URL
+    |--------------------------------------------------------------------------
+    |
+    | The base URL of the public S3-compatible bucket (MinIO locally, CDN in
+    | production). Used by UploadController and DesignController to build
+    | absolute public URLs for uploaded files.
+    |
+    */
+
+    'public_assets_url' => env('PUBLIC_ASSETS_URL', 'http://127.0.0.1:9000/public-assets'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

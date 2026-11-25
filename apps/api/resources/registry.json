@@ -1,0 +1,3458 @@
+{
+  "garments": [
+    {
+      "slug": "mens-tshirt",
+      "name": "T-shirt",
+      "gender": "men",
+      "model": "/models/men/mens-tshirt.glb",
+      "basePriceCents": 2500,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-tshirt/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-tshirt/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-tshirt/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-tshirt/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-tshirt/collar.svg",
+          "allowPrint": true
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "half",
+              "label": "Half sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "pocket",
+          "label": "Pocket",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "chest",
+              "label": "Chest pocket",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "flap",
+              "label": "Flap pocket",
+              "priceDeltaCents": 150
+            },
+            {
+              "id": "double",
+              "label": "Double pocket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-polo",
+      "name": "Polo shirt",
+      "gender": "men",
+      "model": "/models/men/mens-polo.glb",
+      "basePriceCents": 3200,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-polo/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-polo/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-polo/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-polo/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-polo/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "placket",
+          "label": "Placket",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-polo/placket.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-polo/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "half",
+              "label": "Half sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "pocket",
+          "label": "Pocket",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "chest",
+              "label": "Chest pocket",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "flap",
+              "label": "Flap pocket",
+              "priceDeltaCents": 150
+            },
+            {
+              "id": "double",
+              "label": "Double pocket",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-shirt",
+      "name": "Shirt",
+      "gender": "men",
+      "model": "/models/men/mens-shirt.glb",
+      "basePriceCents": 4200,
+      "panels": [
+        {
+          "id": "front_L",
+          "label": "Front (left)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-shirt/front_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "front_R",
+          "label": "Front (right)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-shirt/front_R.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-shirt/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "yoke",
+          "label": "Yoke",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shirt/yoke.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shirt/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shirt/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "cuff_L",
+          "label": "Cuff (left)",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-shirt/cuff_L.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "cuff_R",
+          "label": "Cuff (right)",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-shirt/cuff_L.svg",
+          "mirrorOf": "cuff_L",
+          "allowPrint": false
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-shirt/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_L",
+          "label": "Pocket (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shirt/pocket_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-shirt/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "half",
+              "label": "Half sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "collar",
+          "label": "Collar",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Classic",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "mandarin",
+              "label": "Mandarin",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "buttondown",
+              "label": "Button-down",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "pocket",
+          "label": "Pocket",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "chest",
+              "label": "Chest pocket",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "flap",
+              "label": "Flap pocket",
+              "priceDeltaCents": 150
+            },
+            {
+              "id": "double",
+              "label": "Double pocket",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-hoodie",
+      "name": "Hoodie",
+      "gender": "men",
+      "model": "/models/men/mens-hoodie.glb",
+      "basePriceCents": 4500,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-hoodie/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-hoodie/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-hoodie/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-hoodie/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "hood",
+          "label": "Hood",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-hoodie/hood.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket",
+          "label": "Pocket",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-hoodie/pocket.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "rib",
+          "label": "Rib",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-hoodie/rib.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "style",
+          "label": "Style",
+          "options": [
+            {
+              "id": "pullover",
+              "label": "Pullover",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "zip",
+              "label": "Zip-up",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "relaxed",
+              "label": "Relaxed",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-sweatshirt",
+      "name": "Sweatshirt",
+      "gender": "men",
+      "model": "/models/men/mens-sweatshirt.glb",
+      "basePriceCents": 3800,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-sweatshirt/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-sweatshirt/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-sweatshirt/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-sweatshirt/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "rib",
+          "label": "Rib",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-sweatshirt/rib.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "relaxed",
+              "label": "Relaxed",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-jacket",
+      "name": "Jacket",
+      "gender": "men",
+      "model": "/models/men/mens-jacket.glb",
+      "basePriceCents": 7500,
+      "panels": [
+        {
+          "id": "front_L",
+          "label": "Front (left)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-jacket/front_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "front_R",
+          "label": "Front (right)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-jacket/front_R.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-jacket/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-jacket/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-jacket/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-jacket/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_L",
+          "label": "Pocket (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-jacket/pocket_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_R",
+          "label": "Pocket (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-jacket/pocket_L.svg",
+          "mirrorOf": "pocket_L",
+          "allowPrint": true
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-jacket/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "collar",
+          "label": "Collar",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Classic",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "mandarin",
+              "label": "Mandarin",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "buttondown",
+              "label": "Button-down",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "closure",
+          "label": "Closure",
+          "options": [
+            {
+              "id": "buttons",
+              "label": "Buttons",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "zip",
+              "label": "Zip",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "pocket",
+          "label": "Pocket",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "chest",
+              "label": "Chest pocket",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "flap",
+              "label": "Flap pocket",
+              "priceDeltaCents": 150
+            },
+            {
+              "id": "double",
+              "label": "Double pocket",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-trouser",
+      "name": "Trouser",
+      "gender": "men",
+      "model": "/models/men/mens-trouser.glb",
+      "basePriceCents": 4800,
+      "panels": [
+        {
+          "id": "leg_L",
+          "label": "Leg (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-trouser/leg_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "leg_R",
+          "label": "Leg (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-trouser/leg_L.svg",
+          "mirrorOf": "leg_L",
+          "allowPrint": true
+        },
+        {
+          "id": "waistband",
+          "label": "Waistband",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-trouser/waistband.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "pocket_L",
+          "label": "Pocket (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-trouser/pocket_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_R",
+          "label": "Pocket (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-trouser/pocket_L.svg",
+          "mirrorOf": "pocket_L",
+          "allowPrint": true
+        }
+      ],
+      "variants": [
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "relaxed",
+              "label": "Relaxed",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "full",
+              "label": "Full",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "ankle",
+              "label": "Ankle",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "waist",
+          "label": "Waist",
+          "options": [
+            {
+              "id": "belt",
+              "label": "Belt loops",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "elastic",
+              "label": "Elastic",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-shorts",
+      "name": "Shorts",
+      "gender": "men",
+      "model": "/models/men/mens-shorts.glb",
+      "basePriceCents": 3000,
+      "panels": [
+        {
+          "id": "leg_L",
+          "label": "Leg (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shorts/leg_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "leg_R",
+          "label": "Leg (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shorts/leg_L.svg",
+          "mirrorOf": "leg_L",
+          "allowPrint": true
+        },
+        {
+          "id": "waistband",
+          "label": "Waistband",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-shorts/waistband.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "pocket_L",
+          "label": "Pocket (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shorts/pocket_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_R",
+          "label": "Pocket (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-shorts/pocket_L.svg",
+          "mirrorOf": "pocket_L",
+          "allowPrint": true
+        }
+      ],
+      "variants": [
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "relaxed",
+              "label": "Relaxed",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "waist",
+          "label": "Waist",
+          "options": [
+            {
+              "id": "belt",
+              "label": "Belt loops",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "elastic",
+              "label": "Elastic",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mens-kurta",
+      "name": "Kurta",
+      "gender": "men",
+      "model": "/models/men/mens-kurta.glb",
+      "basePriceCents": 4400,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-kurta/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/men/mens-kurta/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-kurta/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/men/mens-kurta/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-kurta/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "placket",
+          "label": "Placket",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-kurta/placket.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/men/mens-kurta/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "half",
+              "label": "Half sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "collar",
+          "label": "Collar",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Classic",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "mandarin",
+              "label": "Mandarin",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "buttondown",
+              "label": "Button-down",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "hip",
+              "label": "Hip",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-aline",
+      "name": "A-line dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-aline.glb",
+      "basePriceCents": 6500,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-aline/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-aline/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-aline/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-aline/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-aline/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-aline/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-aline/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-aline/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "midi",
+              "label": "Midi",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "maxi",
+              "label": "Maxi",
+              "priceDeltaCents": 500
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-bodycon",
+      "name": "Bodycon dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-bodycon.glb",
+      "basePriceCents": 6000,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-bodycon/neckline_trim.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-maxi",
+      "name": "Maxi dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-maxi.glb",
+      "basePriceCents": 7200,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-maxi/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-midi",
+      "name": "Midi dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-midi.glb",
+      "basePriceCents": 6800,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-midi/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-midi/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-midi/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-midi/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-midi/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-midi/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-midi/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-midi/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-wrap",
+      "name": "Wrap dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-wrap.glb",
+      "basePriceCents": 7000,
+      "panels": [
+        {
+          "id": "wrap_front_L",
+          "label": "Wrap front (left)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/wrap_front_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "wrap_front_R",
+          "label": "Wrap front (right)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/wrap_front_R.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-wrap/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "midi",
+              "label": "Midi",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "maxi",
+              "label": "Maxi",
+              "priceDeltaCents": 500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-dress-shirt",
+      "name": "Shirt dress",
+      "gender": "women",
+      "model": "/models/women/womens-dress-shirt.glb",
+      "basePriceCents": 7000,
+      "panels": [
+        {
+          "id": "front_L",
+          "label": "Front (left)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/front_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "front_R",
+          "label": "Front (right)",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/front_R.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "yoke",
+          "label": "Yoke",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/yoke.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt",
+          "label": "Skirt",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/skirt.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "cuff_L",
+          "label": "Cuff (left)",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/cuff_L.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "cuff_R",
+          "label": "Cuff (right)",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/cuff_L.svg",
+          "mirrorOf": "cuff_L",
+          "allowPrint": false
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/belt.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-dress-shirt/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "collar",
+          "label": "Collar",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Classic",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "mandarin",
+              "label": "Mandarin",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "buttondown",
+              "label": "Button-down",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "midi",
+              "label": "Midi",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "maxi",
+              "label": "Maxi",
+              "priceDeltaCents": 500
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-gown",
+      "name": "Gown",
+      "gender": "women",
+      "model": "/models/women/womens-gown.glb",
+      "basePriceCents": 12000,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-gown/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-gown/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-gown/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-gown/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-gown/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-gown/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-gown/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "train",
+          "label": "Train",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-gown/train.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-gown/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "train",
+          "label": "Train",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short train",
+              "priceDeltaCents": 800
+            },
+            {
+              "id": "long",
+              "label": "Long train",
+              "priceDeltaCents": 1500
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-blouse",
+      "name": "Blouse",
+      "gender": "women",
+      "model": "/models/women/womens-blouse.glb",
+      "basePriceCents": 3800,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-blouse/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-blouse/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-blouse/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-blouse/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "collar",
+          "label": "Collar",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-blouse/collar.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-blouse/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-blouse/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "collar",
+          "label": "Collar",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Classic",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "mandarin",
+              "label": "Mandarin",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "buttondown",
+              "label": "Button-down",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-top",
+      "name": "Top",
+      "gender": "women",
+      "model": "/models/women/womens-top.glb",
+      "basePriceCents": 2800,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-top/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-top/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-top/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-top/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-hoodie",
+      "name": "Hoodie",
+      "gender": "women",
+      "model": "/models/women/womens-hoodie.glb",
+      "basePriceCents": 4500,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-hoodie/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-hoodie/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-hoodie/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-hoodie/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "hood",
+          "label": "Hood",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-hoodie/hood.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket",
+          "label": "Pocket",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-hoodie/pocket.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "rib",
+          "label": "Rib",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-hoodie/rib.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "style",
+          "label": "Style",
+          "options": [
+            {
+              "id": "pullover",
+              "label": "Pullover",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "zip",
+              "label": "Zip-up",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "relaxed",
+              "label": "Relaxed",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-skirt",
+      "name": "Skirt",
+      "gender": "women",
+      "model": "/models/women/womens-skirt.glb",
+      "basePriceCents": 3500,
+      "panels": [
+        {
+          "id": "skirt_front",
+          "label": "Skirt front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-skirt/skirt_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "skirt_back",
+          "label": "Skirt back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-skirt/skirt_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "waistband",
+          "label": "Waistband",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-skirt/waistband.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "style",
+          "label": "Style",
+          "options": [
+            {
+              "id": "aline",
+              "label": "A-line",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "pencil",
+              "label": "Pencil",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "pleated",
+              "label": "Pleated",
+              "priceDeltaCents": 400
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "mini",
+              "label": "Mini",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "midi",
+              "label": "Midi",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "maxi",
+              "label": "Maxi",
+              "priceDeltaCents": 400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-trouser",
+      "name": "Trouser",
+      "gender": "women",
+      "model": "/models/women/womens-trouser.glb",
+      "basePriceCents": 4800,
+      "panels": [
+        {
+          "id": "leg_L",
+          "label": "Leg (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-trouser/leg_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "leg_R",
+          "label": "Leg (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-trouser/leg_L.svg",
+          "mirrorOf": "leg_L",
+          "allowPrint": true
+        },
+        {
+          "id": "waistband",
+          "label": "Waistband",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-trouser/waistband.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "pocket_L",
+          "label": "Pocket (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-trouser/pocket_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "pocket_R",
+          "label": "Pocket (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-trouser/pocket_L.svg",
+          "mirrorOf": "pocket_L",
+          "allowPrint": true
+        }
+      ],
+      "variants": [
+        {
+          "key": "fit",
+          "label": "Fit",
+          "options": [
+            {
+              "id": "slim",
+              "label": "Slim",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "regular",
+              "label": "Regular",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "wide",
+              "label": "Wide leg",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "full",
+              "label": "Full",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "ankle",
+              "label": "Ankle",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "waist",
+          "label": "Waist",
+          "options": [
+            {
+              "id": "belt",
+              "label": "Belt loops",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "elastic",
+              "label": "Elastic",
+              "priceDeltaCents": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-jumpsuit",
+      "name": "Jumpsuit",
+      "gender": "women",
+      "model": "/models/women/womens-jumpsuit.glb",
+      "basePriceCents": 8000,
+      "panels": [
+        {
+          "id": "bodice_front",
+          "label": "Bodice front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/bodice_front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "bodice_back",
+          "label": "Bodice back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/bodice_back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "leg_L",
+          "label": "Leg (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/leg_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "leg_R",
+          "label": "Leg (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/leg_L.svg",
+          "mirrorOf": "leg_L",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "belt",
+          "label": "Belt",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-jumpsuit/belt.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "belt",
+          "label": "Belt",
+          "options": [
+            {
+              "id": "none",
+              "label": "None",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "tie",
+              "label": "Tie belt",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "womens-kurti",
+      "name": "Kurti",
+      "gender": "women",
+      "model": "/models/women/womens-kurti.glb",
+      "basePriceCents": 4200,
+      "panels": [
+        {
+          "id": "front",
+          "label": "Front",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-kurti/front.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "back",
+          "label": "Back",
+          "size": [
+            2048,
+            2048
+          ],
+          "outline": "/patterns/women/womens-kurti/back.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_L",
+          "label": "Sleeve (left)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-kurti/sleeve_L.svg",
+          "allowPrint": true
+        },
+        {
+          "id": "sleeve_R",
+          "label": "Sleeve (right)",
+          "size": [
+            1024,
+            1024
+          ],
+          "outline": "/patterns/women/womens-kurti/sleeve_L.svg",
+          "mirrorOf": "sleeve_L",
+          "allowPrint": true
+        },
+        {
+          "id": "neckline_trim",
+          "label": "Neckline trim",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-kurti/neckline_trim.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "placket",
+          "label": "Placket",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-kurti/placket.svg",
+          "allowPrint": false
+        },
+        {
+          "id": "buttons",
+          "label": "Buttons",
+          "size": [
+            1024,
+            256
+          ],
+          "outline": "/patterns/women/womens-kurti/buttons.svg",
+          "allowPrint": false
+        }
+      ],
+      "variants": [
+        {
+          "key": "sleeve",
+          "label": "Sleeve",
+          "options": [
+            {
+              "id": "sleeveless",
+              "label": "Sleeveless",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "short",
+              "label": "Short sleeve",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "threeq",
+              "label": "3/4 sleeve",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "full",
+              "label": "Full sleeve",
+              "priceDeltaCents": 300
+            }
+          ]
+        },
+        {
+          "key": "neckline",
+          "label": "Neckline",
+          "options": [
+            {
+              "id": "round",
+              "label": "Round",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "v",
+              "label": "V-neck",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "boat",
+              "label": "Boat",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "square",
+              "label": "Square",
+              "priceDeltaCents": 0
+            }
+          ]
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "options": [
+            {
+              "id": "hip",
+              "label": "Hip",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "knee",
+              "label": "Knee",
+              "priceDeltaCents": 200
+            }
+          ]
+        },
+        {
+          "key": "buttons",
+          "label": "Button design",
+          "options": [
+            {
+              "id": "standard",
+              "label": "Standard",
+              "priceDeltaCents": 0
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast",
+              "priceDeltaCents": 100
+            },
+            {
+              "id": "metal",
+              "label": "Metal",
+              "priceDeltaCents": 200
+            },
+            {
+              "id": "hidden",
+              "label": "Hidden placket",
+              "priceDeltaCents": 200
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fabrics": {
+    "cotton": {
+      "label": "Cotton",
+      "roughness": 0.9,
+      "priceDeltaCents": 0
+    },
+    "polyester": {
+      "label": "Polyester",
+      "roughness": 0.6,
+      "priceDeltaCents": 0
+    },
+    "linen": {
+      "label": "Linen",
+      "roughness": 0.95,
+      "priceDeltaCents": 600
+    },
+    "denim": {
+      "label": "Denim",
+      "roughness": 0.85,
+      "priceDeltaCents": 500
+    },
+    "fleece": {
+      "label": "Fleece",
+      "roughness": 1,
+      "priceDeltaCents": 400
+    },
+    "rib_knit": {
+      "label": "Rib knit",
+      "roughness": 0.95,
+      "priceDeltaCents": 300
+    },
+    "chiffon": {
+      "label": "Chiffon",
+      "roughness": 0.5,
+      "priceDeltaCents": 1000
+    },
+    "velvet": {
+      "label": "Velvet",
+      "roughness": 1,
+      "priceDeltaCents": 1200
+    },
+    "satin": {
+      "label": "Satin",
+      "roughness": 0.3,
+      "priceDeltaCents": 1400
+    },
+    "silk": {
+      "label": "Silk",
+      "roughness": 0.35,
+      "priceDeltaCents": 1800
+    }
+  }
+}
