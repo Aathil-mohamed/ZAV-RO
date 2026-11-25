@@ -5,6 +5,7 @@ export type Variant = {
   color: string;
   hex: string;
   modelImage: string;
+  tryonImage?: string;
   inStock: boolean;
 };
 
@@ -15,6 +16,7 @@ export type Garment = {
   thumb: string;
   customizable: boolean;
   garmentSlug: string | null;
+  sizeGroup?: "upper" | "lower" | "dress";
   variants: Variant[];
 };
 

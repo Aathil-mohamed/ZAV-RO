@@ -51,6 +51,18 @@ bootstrap/cache/*
 docker-data/
 data/
 
+# Testing & logs
+.phpunit.result.cache
+playwright-report/
+test-results/
+*.log
+
+# Laravel private/uploaded storage
+apps/api/storage/app/private/*
+!apps/api/storage/app/private/.gitignore
+apps/api/storage/app/public/*
+!apps/api/storage/app/public/.gitignore
+
 # OS & IDE
 .DS_Store
 Thumbs.db

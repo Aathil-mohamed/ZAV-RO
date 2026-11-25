@@ -18,6 +18,7 @@ class ProductVariant extends Model
         'color',
         'hex',
         'model_image_url',
+        'tryon_image_url',
         'sku',
         'stock',
     ];

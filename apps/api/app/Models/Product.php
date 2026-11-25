@@ -22,6 +22,7 @@ class Product extends Model
         'thumb_url',
         'customizable',
         'garment_slug',
+        'size_group',
         'active',
     ];
 

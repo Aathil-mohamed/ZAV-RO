@@ -12,7 +12,7 @@ class CatalogController extends Controller
         return Cache::remember("catalog:$gender", 300, fn () => Product::query()
             ->where('active', true)
             ->whereHas('category', fn ($q) => $q->whereIn('gender', [$gender, 'unisex']))
-            ->with('variants:id,product_id,color,hex,model_image_url,stock')
+            ->with('variants:id,product_id,color,hex,model_image_url,tryon_image_url,stock')
             ->orderBy('id')
             ->get()
             ->map(fn ($p) => [
@@ -22,11 +22,13 @@ class CatalogController extends Controller
                 'thumb' => $p->thumb_url,
                 'customizable' => (bool) $p->customizable,
                 'garmentSlug' => $p->garment_slug,
+                'sizeGroup' => $p->size_group ?? 'upper',
                 'variants' => $p->variants->map(fn ($v) => [
                     'id' => $v->id,
                     'color' => $v->color,
                     'hex' => $v->hex,
                     'modelImage' => $v->model_image_url,
+                    'tryonImage' => $v->tryon_image_url ?? $v->model_image_url,
                     'inStock' => $v->stock > 0,
                 ])->values(),
             ])->values()
