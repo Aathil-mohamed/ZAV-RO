@@ -1,6 +1,7 @@
 "use client";
 import { useDesigner, type Layer, type PatternLayer } from "@/store/designer";
 import { FABRICS, PATTERNS } from "@/lib/garments";
+import { formatMoney } from "@/lib/money";
 import { api } from "@/lib/api";
 
 const uid = () => Math.random().toString(36).slice(2, 9);
@@ -40,7 +41,7 @@ export default function SettingsPanel() {
 
       <label className="block">Fabric
         <select value={d.fabric} onChange={(e) => updatePanel(selectedPanel, { fabric: e.target.value })} className="ml-2 rounded border px-2 py-1" aria-label="Fabric">
-          {Object.entries(FABRICS).map(([id, f]) => <option key={id} value={id}>{f.label}{f.priceDeltaCents ? ` (+$${(f.priceDeltaCents / 100).toFixed(0)})` : ""}</option>)}
+          {Object.entries(FABRICS).map(([id, f]) => <option key={id} value={id}>{f.label}{f.priceDeltaCents ? ` (+${formatMoney(f.priceDeltaCents)})` : ""}</option>)}
         </select>
       </label>
 

@@ -68,5 +68,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::post('/checkout', [CheckoutController::class, 'create'])->middleware('throttle:20,1');
-Route::post('/stripe/webhook', [CheckoutController::class, 'webhook']);
-Route::get('/orders/{session}', [CheckoutController::class, 'showBySession']);
+Route::post('/payhere/notify', [CheckoutController::class, 'notify']);
+Route::get('/orders/{orderNumber}', [CheckoutController::class, 'showByOrderNumber']);
+Route::post('/orders/{orderNumber}/pay', [CheckoutController::class, 'retry'])->middleware('throttle:20,1');

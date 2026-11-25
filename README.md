@@ -112,3 +112,16 @@ node scripts/make-placeholders.mjs
 ```
 
 Assets are saved directly into: `apps/web/public/dev-models/{gender}/{slug}/{color}.webp`.
+
+---
+
+## 5. PayHere Going Live Checklist (LKR)
+
+When moving from PayHere Sandbox (`PAYHERE_MODE=sandbox`) to Production:
+
+1. Complete live PayHere merchant approval and register the production domain to obtain your live **Merchant ID** and **Merchant Secret**.
+2. Set `PAYHERE_MODE=live` and update `PAYHERE_MERCHANT_ID` and `PAYHERE_MERCHANT_SECRET` in `apps/api/.env` over HTTPS.
+3. Set `PAYHERE_NOTIFY_URL` to your public HTTPS endpoint (`https://<production-domain>/api/payhere/notify`).
+4. Publish **Refund / Returns**, **Privacy Policy**, and **Terms of Service** pages on the storefront (required by PayHere for live approval).
+5. Confirm PayHere's current transaction fees and settlement terms before launch.
+6. Verify and replace placeholder LKR prices (currently `USD-like × 300`) and shipping thresholds in `apps/api/config/store.php` (`STORE_SHIPPING_CENTS`, `STORE_FREE_SHIPPING_OVER_CENTS`).

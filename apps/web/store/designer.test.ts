@@ -20,7 +20,7 @@ describe("estimatePriceCents", () => {
   it("adds variant delta for full sleeve", () => {
     const panels = Object.fromEntries(tshirt.panels.map((p) => [p.id, blank()]));
     const result = estimatePriceCents(tshirt, panels, { sleeve: "full" });
-    expect(result).toBe(tshirt.basePriceCents + 300);
+    expect(result).toBe(tshirt.basePriceCents + 90000);
   });
 
   it("adds fabric delta for linen", () => {
@@ -30,14 +30,14 @@ describe("estimatePriceCents", () => {
     expect(result).toBe(tshirt.basePriceCents + FABRICS.linen.priceDeltaCents);
   });
 
-  it("caps print price at 1000 cents (5+ printed panels)", () => {
+  it("caps print price at 300000 cents (5+ printed panels)", () => {
     const panels = Object.fromEntries(tshirt.panels.map((p) => [
       p.id,
       { ...blank(), layers: [{ id: "x", type: "text" as const, text: "hi", font: "sans", size: 0.1, color: "#000", x: 0.5, y: 0.5, rotation: 0 }] },
     ]));
-    // 5 panels × 200 = 1000 → cap
+    // 5 panels × 60000 = 300000 → cap
     const result = estimatePriceCents(tshirt, panels, {});
-    expect(result).toBe(tshirt.basePriceCents + 1000);
+    expect(result).toBe(tshirt.basePriceCents + 300000);
   });
 });
 

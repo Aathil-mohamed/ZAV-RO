@@ -5,7 +5,7 @@
       "name": "T-shirt",
       "gender": "men",
       "model": "/models/men/mens-tshirt.glb",
-      "basePriceCents": 2500,
+      "basePriceCents": 750000,
       "panels": [
         {
           "id": "front",
@@ -72,7 +72,7 @@
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -104,17 +104,17 @@
             {
               "id": "chest",
               "label": "Chest pocket",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "flap",
               "label": "Flap pocket",
-              "priceDeltaCents": 150
+              "priceDeltaCents": 45000
             },
             {
               "id": "double",
               "label": "Double pocket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -125,7 +125,7 @@
       "name": "Polo shirt",
       "gender": "men",
       "model": "/models/men/mens-polo.glb",
-      "basePriceCents": 3200,
+      "basePriceCents": 960000,
       "panels": [
         {
           "id": "front",
@@ -212,7 +212,7 @@
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -228,17 +228,17 @@
             {
               "id": "chest",
               "label": "Chest pocket",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "flap",
               "label": "Flap pocket",
-              "priceDeltaCents": 150
+              "priceDeltaCents": 45000
             },
             {
               "id": "double",
               "label": "Double pocket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -254,17 +254,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -275,7 +275,7 @@
       "name": "Shirt",
       "gender": "men",
       "model": "/models/men/mens-shirt.glb",
-      "basePriceCents": 4200,
+      "basePriceCents": 1260000,
       "panels": [
         {
           "id": "front_L",
@@ -403,7 +403,7 @@
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -440,17 +440,17 @@
             {
               "id": "chest",
               "label": "Chest pocket",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "flap",
               "label": "Flap pocket",
-              "priceDeltaCents": 150
+              "priceDeltaCents": 45000
             },
             {
               "id": "double",
               "label": "Double pocket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -466,17 +466,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -487,7 +487,7 @@
       "name": "Hoodie",
       "gender": "men",
       "model": "/models/men/mens-hoodie.glb",
-      "basePriceCents": 4500,
+      "basePriceCents": 1350000,
       "panels": [
         {
           "id": "front",
@@ -574,7 +574,7 @@
             {
               "id": "zip",
               "label": "Zip-up",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -606,7 +606,7 @@
       "name": "Sweatshirt",
       "gender": "men",
       "model": "/models/men/mens-sweatshirt.glb",
-      "basePriceCents": 3800,
+      "basePriceCents": 1140000,
       "panels": [
         {
           "id": "front",
@@ -705,7 +705,7 @@
       "name": "Jacket",
       "gender": "men",
       "model": "/models/men/mens-jacket.glb",
-      "basePriceCents": 7500,
+      "basePriceCents": 2250000,
       "panels": [
         {
           "id": "front_L",
@@ -850,17 +850,17 @@
             {
               "id": "chest",
               "label": "Chest pocket",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "flap",
               "label": "Flap pocket",
-              "priceDeltaCents": 150
+              "priceDeltaCents": 45000
             },
             {
               "id": "double",
               "label": "Double pocket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -876,17 +876,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -897,7 +897,7 @@
       "name": "Trouser",
       "gender": "men",
       "model": "/models/men/mens-trouser.glb",
-      "basePriceCents": 4800,
+      "basePriceCents": 1440000,
       "panels": [
         {
           "id": "leg_L",
@@ -1013,7 +1013,7 @@
       "name": "Shorts",
       "gender": "men",
       "model": "/models/men/mens-shorts.glb",
-      "basePriceCents": 3000,
+      "basePriceCents": 900000,
       "panels": [
         {
           "id": "leg_L",
@@ -1113,7 +1113,7 @@
       "name": "Kurta",
       "gender": "men",
       "model": "/models/men/mens-kurta.glb",
-      "basePriceCents": 4400,
+      "basePriceCents": 1320000,
       "panels": [
         {
           "id": "front",
@@ -1200,7 +1200,7 @@
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -1237,7 +1237,7 @@
             {
               "id": "knee",
               "label": "Knee",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -1253,17 +1253,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -1274,7 +1274,7 @@
       "name": "A-line dress",
       "gender": "women",
       "model": "/models/women/womens-dress-aline.glb",
-      "basePriceCents": 6500,
+      "basePriceCents": 1950000,
       "panels": [
         {
           "id": "bodice_front",
@@ -1376,12 +1376,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -1423,12 +1423,12 @@
             {
               "id": "midi",
               "label": "Midi",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "maxi",
               "label": "Maxi",
-              "priceDeltaCents": 500
+              "priceDeltaCents": 150000
             }
           ]
         },
@@ -1444,7 +1444,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -1455,7 +1455,7 @@
       "name": "Bodycon dress",
       "gender": "women",
       "model": "/models/women/womens-dress-bodycon.glb",
-      "basePriceCents": 6000,
+      "basePriceCents": 1800000,
       "panels": [
         {
           "id": "bodice_front",
@@ -1547,12 +1547,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -1589,7 +1589,7 @@
       "name": "Maxi dress",
       "gender": "women",
       "model": "/models/women/womens-dress-maxi.glb",
-      "basePriceCents": 7200,
+      "basePriceCents": 2160000,
       "panels": [
         {
           "id": "bodice_front",
@@ -1691,12 +1691,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -1738,7 +1738,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -1749,7 +1749,7 @@
       "name": "Midi dress",
       "gender": "women",
       "model": "/models/women/womens-dress-midi.glb",
-      "basePriceCents": 6800,
+      "basePriceCents": 2040000,
       "panels": [
         {
           "id": "bodice_front",
@@ -1851,12 +1851,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -1898,7 +1898,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -1909,7 +1909,7 @@
       "name": "Wrap dress",
       "gender": "women",
       "model": "/models/women/womens-dress-wrap.glb",
-      "basePriceCents": 7000,
+      "basePriceCents": 2100000,
       "panels": [
         {
           "id": "wrap_front_L",
@@ -2001,12 +2001,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2022,12 +2022,12 @@
             {
               "id": "midi",
               "label": "Midi",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "maxi",
               "label": "Maxi",
-              "priceDeltaCents": 500
+              "priceDeltaCents": 150000
             }
           ]
         }
@@ -2038,7 +2038,7 @@
       "name": "Shirt dress",
       "gender": "women",
       "model": "/models/women/womens-dress-shirt.glb",
-      "basePriceCents": 7000,
+      "basePriceCents": 2100000,
       "panels": [
         {
           "id": "front_L",
@@ -2181,12 +2181,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2223,12 +2223,12 @@
             {
               "id": "midi",
               "label": "Midi",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "maxi",
               "label": "Maxi",
-              "priceDeltaCents": 500
+              "priceDeltaCents": 150000
             }
           ]
         },
@@ -2244,7 +2244,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -2260,17 +2260,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -2281,7 +2281,7 @@
       "name": "Gown",
       "gender": "women",
       "model": "/models/women/womens-gown.glb",
-      "basePriceCents": 12000,
+      "basePriceCents": 3600000,
       "panels": [
         {
           "id": "bodice_front",
@@ -2393,12 +2393,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2440,12 +2440,12 @@
             {
               "id": "short",
               "label": "Short train",
-              "priceDeltaCents": 800
+              "priceDeltaCents": 240000
             },
             {
               "id": "long",
               "label": "Long train",
-              "priceDeltaCents": 1500
+              "priceDeltaCents": 450000
             }
           ]
         },
@@ -2461,7 +2461,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -2472,7 +2472,7 @@
       "name": "Blouse",
       "gender": "women",
       "model": "/models/women/womens-blouse.glb",
-      "basePriceCents": 3800,
+      "basePriceCents": 1140000,
       "panels": [
         {
           "id": "front",
@@ -2564,12 +2564,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2632,17 +2632,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -2653,7 +2653,7 @@
       "name": "Top",
       "gender": "women",
       "model": "/models/women/womens-top.glb",
-      "basePriceCents": 2800,
+      "basePriceCents": 840000,
       "panels": [
         {
           "id": "front",
@@ -2715,12 +2715,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2757,7 +2757,7 @@
       "name": "Hoodie",
       "gender": "women",
       "model": "/models/women/womens-hoodie.glb",
-      "basePriceCents": 4500,
+      "basePriceCents": 1350000,
       "panels": [
         {
           "id": "front",
@@ -2844,7 +2844,7 @@
             {
               "id": "zip",
               "label": "Zip-up",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -2876,7 +2876,7 @@
       "name": "Skirt",
       "gender": "women",
       "model": "/models/women/womens-skirt.glb",
-      "basePriceCents": 3500,
+      "basePriceCents": 1050000,
       "panels": [
         {
           "id": "skirt_front",
@@ -2927,7 +2927,7 @@
             {
               "id": "pleated",
               "label": "Pleated",
-              "priceDeltaCents": 400
+              "priceDeltaCents": 120000
             }
           ]
         },
@@ -2948,12 +2948,12 @@
             {
               "id": "midi",
               "label": "Midi",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "maxi",
               "label": "Maxi",
-              "priceDeltaCents": 400
+              "priceDeltaCents": 120000
             }
           ]
         }
@@ -2964,7 +2964,7 @@
       "name": "Trouser",
       "gender": "women",
       "model": "/models/women/womens-trouser.glb",
-      "basePriceCents": 4800,
+      "basePriceCents": 1440000,
       "panels": [
         {
           "id": "leg_L",
@@ -3037,7 +3037,7 @@
             {
               "id": "wide",
               "label": "Wide leg",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -3080,7 +3080,7 @@
       "name": "Jumpsuit",
       "gender": "women",
       "model": "/models/women/womens-jumpsuit.glb",
-      "basePriceCents": 8000,
+      "basePriceCents": 2400000,
       "panels": [
         {
           "id": "bodice_front",
@@ -3173,12 +3173,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -3220,7 +3220,7 @@
             {
               "id": "tie",
               "label": "Tie belt",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -3231,7 +3231,7 @@
       "name": "Kurti",
       "gender": "women",
       "model": "/models/women/womens-kurti.glb",
-      "basePriceCents": 4200,
+      "basePriceCents": 1260000,
       "panels": [
         {
           "id": "front",
@@ -3323,12 +3323,12 @@
             {
               "id": "threeq",
               "label": "3/4 sleeve",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "full",
               "label": "Full sleeve",
-              "priceDeltaCents": 300
+              "priceDeltaCents": 90000
             }
           ]
         },
@@ -3370,7 +3370,7 @@
             {
               "id": "knee",
               "label": "Knee",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         },
@@ -3386,17 +3386,17 @@
             {
               "id": "contrast",
               "label": "Contrast",
-              "priceDeltaCents": 100
+              "priceDeltaCents": 30000
             },
             {
               "id": "metal",
               "label": "Metal",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             },
             {
               "id": "hidden",
               "label": "Hidden placket",
-              "priceDeltaCents": 200
+              "priceDeltaCents": 60000
             }
           ]
         }
@@ -3417,42 +3417,42 @@
     "linen": {
       "label": "Linen",
       "roughness": 0.95,
-      "priceDeltaCents": 600
+      "priceDeltaCents": 180000
     },
     "denim": {
       "label": "Denim",
       "roughness": 0.85,
-      "priceDeltaCents": 500
+      "priceDeltaCents": 150000
     },
     "fleece": {
       "label": "Fleece",
       "roughness": 1,
-      "priceDeltaCents": 400
+      "priceDeltaCents": 120000
     },
     "rib_knit": {
       "label": "Rib knit",
       "roughness": 0.95,
-      "priceDeltaCents": 300
+      "priceDeltaCents": 90000
     },
     "chiffon": {
       "label": "Chiffon",
       "roughness": 0.5,
-      "priceDeltaCents": 1000
+      "priceDeltaCents": 300000
     },
     "velvet": {
       "label": "Velvet",
       "roughness": 1,
-      "priceDeltaCents": 1200
+      "priceDeltaCents": 360000
     },
     "satin": {
       "label": "Satin",
       "roughness": 0.3,
-      "priceDeltaCents": 1400
+      "priceDeltaCents": 420000
     },
     "silk": {
       "label": "Silk",
       "roughness": 0.35,
-      "priceDeltaCents": 1800
+      "priceDeltaCents": 540000
     }
   }
 }

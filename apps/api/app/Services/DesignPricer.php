@@ -70,6 +70,6 @@ class DesignPricer
 
         $printed = collect($design['panels'])->filter(fn ($p) => count($p['layers']) > 0)->count();
 
-        return $total + min($printed * 200, 1000);
+        return $total + min($printed * 60000, 300000);
     }
 }

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useCart } from "@/store/cart";
 import { useAuth } from "@/store/auth";
 import { api } from "@/lib/api";
+import { formatMoney } from "@/lib/money";
+import { submitPayHereForm } from "@/lib/payhere";
 
 export default function BagDrawer() {
   const { open, lines: rawLines, toggle, setQty, remove, subtotalCents } = useCart();
@@ -12,11 +14,11 @@ export default function BagDrawer() {
   const [mounted, setMounted] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [line1, setLine1] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [country, setCountry] = useState("US");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,7 +26,9 @@ export default function BagDrawer() {
   useEffect(() => {
     if (user) {
       setEmail((e) => e || user.email);
-      setName((n) => n || user.name);
+      const parts = user.name.trim().split(/\s+/);
+      setFirstName((f) => f || parts[0] || "");
+      setLastName((l) => l || parts.slice(1).join(" ") || "");
     }
   }, [user]);
 
@@ -37,11 +41,22 @@ export default function BagDrawer() {
     setBusy(true);
     setError(null);
     try {
-      const res = await api<{ url: string }>("/api/checkout", {
+      const res = await api<{
+        orderNumber: string;
+        viewToken: string;
+        action: string;
+        fields: Record<string, string>;
+      }>("/api/checkout", {
         method: "POST",
         body: JSON.stringify({
           email,
-          shipping: { name, line1, city, postal_code: postalCode, country: country.toUpperCase() },
+          shipping: {
+            first_name: firstName,
+            last_name: lastName,
+            phone,
+            address,
+            city,
+          },
           items: lines.map((l) => ({
             variant_id: l.variantId ?? null,
             custom_design_id: l.customDesignId ?? null,
@@ -50,7 +65,7 @@ export default function BagDrawer() {
           })),
         }),
       });
-      window.location.href = res.url;
+      submitPayHereForm(res.action, res.fields);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not start checkout.");
       setBusy(false);
@@ -119,7 +134,7 @@ export default function BagDrawer() {
                     </p>
                     <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
                       {l.size ? `Size ${l.size} · ` : ""}
-                      ${(l.priceCents / 100).toFixed(2)}
+                      {formatMoney(l.priceCents)}
                     </p>
                   </div>
 
@@ -161,7 +176,7 @@ export default function BagDrawer() {
           <div className="flex justify-between text-sm">
             <span className="text-neutral-600 dark:text-neutral-400">Subtotal</span>
             <span className="font-bold text-neutral-900 dark:text-neutral-100">
-              ${(subtotal / 100).toFixed(2)}
+              {formatMoney(subtotal)}
             </span>
           </div>
 
@@ -176,21 +191,21 @@ export default function BagDrawer() {
             </button>
           ) : (
             <form onSubmit={handleCheckout} className="space-y-2 text-xs">
-              <input type="email" required placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
-              <input type="text" required placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
-              <input type="text" required placeholder="Address line 1" value={line1} onChange={(e) => setLine1(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
-              <div className="grid grid-cols-3 gap-2">
-                <input type="text" required placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} className="rounded border px-2 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
-                <input type="text" required placeholder="Postal" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="rounded border px-2 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
-                <input type="text" required maxLength={2} placeholder="US" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded border px-2 py-2 uppercase dark:border-neutral-700 dark:bg-neutral-800" />
+              <div className="grid grid-cols-2 gap-2">
+                <input type="text" required placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+                <input type="text" required placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)} className="rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
               </div>
+              <input type="email" required placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <input type="tel" required placeholder="Phone (e.g. 0771234567)" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <input type="text" required placeholder="Street address" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <input type="text" required placeholder="City (e.g. Colombo)" value={city} onChange={(e) => setCity(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
               {error && <p className="text-rose-600">{error}</p>}
               <div className="flex gap-2">
                 <button type="button" onClick={() => setCheckoutOpen(false)} className="rounded-lg border px-3 py-2.5 font-semibold dark:border-neutral-700">
                   Back
                 </button>
                 <button type="submit" disabled={busy} className="flex-1 rounded-lg bg-black py-2.5 font-bold uppercase tracking-wider text-white disabled:opacity-50 dark:bg-white dark:text-black">
-                  {busy ? "Redirecting…" : "Pay with Stripe"}
+                  {busy ? "Redirecting…" : "Pay with PayHere"}
                 </button>
               </div>
             </form>

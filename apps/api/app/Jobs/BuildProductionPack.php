@@ -43,12 +43,14 @@ class BuildProductionPack implements ShouldQueue
             ], JSON_PRETTY_PRINT));
 
             $addr = $this->order->shipping_address ?? [];
+            $fullName = trim(($addr['first_name'] ?? '') . ' ' . ($addr['last_name'] ?? '')) ?: ($addr['name'] ?? '');
             $orderTxt = implode("\n", [
-                "Order #{$this->order->id}",
+                "Order {$this->order->order_number}",
                 "Email: {$this->order->email}",
+                "Phone: " . ($addr['phone'] ?? ''),
                 "Item: {$this->item->name} (Size: " . ($this->item->size ?? 'N/A') . ", Qty: {$this->item->qty})",
-                'Name: ' . ($addr['name'] ?? ''),
-                'Address: ' . ($addr['line1'] ?? '') . ', ' . ($addr['city'] ?? '') . ' ' . ($addr['postal_code'] ?? '') . ' ' . ($addr['country'] ?? ''),
+                "Name: {$fullName}",
+                'Address: ' . ($addr['address'] ?? $addr['line1'] ?? '') . ', ' . ($addr['city'] ?? '') . ' (Sri Lanka)',
                 'Variants: ' . json_encode($design->design['variants'] ?? []),
             ]);
             File::put($tmpDir . DIRECTORY_SEPARATOR . 'order.txt', $orderTxt);

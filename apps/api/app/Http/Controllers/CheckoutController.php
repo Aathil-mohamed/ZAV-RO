@@ -7,22 +7,24 @@ use App\Models\Cart;
 use App\Models\CustomDesign;
 use App\Models\Order;
 use App\Models\ProductVariant;
+use App\Payments\PaymentGateway;
 use App\Services\DesignPricer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
-    public function create(Request $request, DesignPricer $pricer)
+    public function create(Request $request, DesignPricer $pricer, PaymentGateway $gateway)
     {
         $data = $request->validate([
             'email' => 'required|email',
             'shipping' => 'required|array',
-            'shipping.name' => 'required|string|max:120',
-            'shipping.line1' => 'required|string|max:200',
+            'shipping.first_name' => 'required|string|max:80',
+            'shipping.last_name' => 'required|string|max:80',
+            'shipping.phone' => 'required|string|max:30',
+            'shipping.address' => 'required|string|max:200',
             'shipping.city' => 'required|string|max:100',
-            'shipping.postal_code' => 'required|string|max:20',
-            'shipping.country' => 'required|string|size:2',
             'items' => 'required|array|min:1|max:30',
             'items.*.variant_id' => 'nullable|integer|exists:product_variants,id',
             'items.*.custom_design_id' => 'nullable|integer|exists:custom_designs,id',
@@ -30,9 +32,8 @@ class CheckoutController extends Controller
             'items.*.qty' => 'required|integer|between:1,10',
         ]);
 
-        return DB::transaction(function () use ($data, $request, $pricer) {
+        return DB::transaction(function () use ($data, $request, $pricer, $gateway) {
             $subtotal = 0;
-            $stripeLines = [];
             $rows = [];
 
             foreach ($data['items'] as $i) {
@@ -58,14 +59,6 @@ class CheckoutController extends Controller
                 }
 
                 $subtotal += $price * $i['qty'];
-                $stripeLines[] = [
-                    'price_data' => [
-                        'currency' => 'usd',
-                        'unit_amount' => $price,
-                        'product_data' => ['name' => $name],
-                    ],
-                    'quantity' => $i['qty'],
-                ];
                 $rows[] = [
                     'product_variant_id' => $i['variant_id'] ?? null,
                     'custom_design_id' => $i['custom_design_id'] ?? null,
@@ -76,10 +69,13 @@ class CheckoutController extends Controller
                 ];
             }
 
-            $shipping = $subtotal >= 10000 ? 0 : 600;
+            $freeOver = (int) config('store.free_shipping_over_cents', 1500000);
+            $shipping = $subtotal >= $freeOver ? 0 : (int) config('store.shipping_cents', 45000);
+
             $order = Order::create([
                 'user_id' => $request->user()?->id,
                 'email' => $data['email'],
+                'payment_provider' => 'payhere',
                 'subtotal_cents' => $subtotal,
                 'shipping_cents' => $shipping,
                 'total_cents' => $subtotal + $shipping,
@@ -87,51 +83,71 @@ class CheckoutController extends Controller
             ]);
             $order->items()->createMany($rows);
 
-            if ($shipping > 0) {
-                $stripeLines[] = [
-                    'price_data' => [
-                        'currency' => 'usd',
-                        'unit_amount' => $shipping,
-                        'product_data' => ['name' => 'Shipping'],
-                    ],
-                    'quantity' => 1,
-                ];
-            }
+            $payment = $gateway->startPayment($order, $data['shipping']);
 
-            $session = $this->createStripeSession([
-                'mode' => 'payment',
-                'line_items' => $stripeLines,
-                'customer_email' => $data['email'],
-                'success_url' => rtrim(config('app.frontend_url'), '/') . '/order/{CHECKOUT_SESSION_ID}',
-                'cancel_url' => rtrim(config('app.frontend_url'), '/') . '/?cart=1',
-                'metadata' => ['order_id' => $order->id],
-            ]);
-
-            $order->update(['stripe_session_id' => $session->id]);
-
-            return ['url' => $session->url, 'sessionId' => $session->id, 'orderId' => $order->id];
+            return [
+                'orderNumber' => $order->order_number,
+                'viewToken' => $order->view_token,
+                'action' => $payment['action'],
+                'fields' => $payment['fields'],
+            ];
         });
     }
 
-    public function webhook(Request $request)
+    public function retry(Request $request, string $orderNumber, PaymentGateway $gateway)
     {
-        try {
-            $event = $this->constructStripeEvent(
-                $request->getContent(),
-                (string) $request->header('Stripe-Signature'),
-                (string) config('services.stripe.webhook')
-            );
-        } catch (\Throwable $e) {
-            return response('bad signature', 400);
+        $order = Order::where('order_number', $orderNumber)->firstOrFail();
+
+        $authorized = ($request->user() && $order->user_id === $request->user()->id)
+            || ($request->query('token') && hash_equals((string) $order->view_token, (string) $request->query('token')))
+            || ($request->input('token') && hash_equals((string) $order->view_token, (string) $request->input('token')));
+
+        abort_unless($authorized, 403, 'Unauthorized');
+        abort_unless($order->status === 'pending', 422, 'Order is not pending');
+
+        $payment = $gateway->startPayment($order, $order->shipping_address ?? []);
+
+        return [
+            'orderNumber' => $order->order_number,
+            'action' => $payment['action'],
+            'fields' => $payment['fields'],
+        ];
+    }
+
+    public function notify(Request $request)
+    {
+        $secretHash = strtoupper(md5((string) config('services.payhere.secret')));
+        $local = strtoupper(md5(
+            $request->merchant_id .
+            $request->order_id .
+            $request->payhere_amount .
+            $request->payhere_currency .
+            $request->status_code .
+            $secretHash
+        ));
+
+        if (! hash_equals($local, (string) $request->md5sig) || $request->merchant_id !== config('services.payhere.merchant_id')) {
+            Log::warning('PayHere notify: bad signature', ['order_id' => $request->order_id]);
+
+            return response('invalid', 400);
         }
 
-        if ($event->type === 'checkout.session.completed') {
-            DB::transaction(function () use ($event) {
-                $order = Order::lockForUpdate()->findOrFail($event->data->object->metadata->order_id);
-                if ($order->status !== 'pending') {
-                    return; // idempotent
-                }
-                $order->update(['status' => 'paid']);
+        $orderIdStr = (string) $request->order_id;
+        $pos = strrpos($orderIdStr, '-');
+        $orderNumber = $pos !== false ? substr($orderIdStr, 0, $pos) : $orderIdStr;
+
+        DB::transaction(function () use ($request, $orderNumber) {
+            $order = Order::where('order_number', $orderNumber)->lockForUpdate()->first();
+            if (! $order || $order->status !== 'pending') {
+                return;
+            }
+
+            $expectedCur = config('store.currency', 'LKR');
+            $amountOk = $request->payhere_currency === $expectedCur
+                && $request->payhere_amount === number_format($order->total_cents / 100, 2, '.', '');
+
+            if ((int) $request->status_code === 2 && $amountOk) {
+                $order->update(['status' => 'paid', 'payment_ref' => $request->payment_id]);
                 foreach ($order->items as $it) {
                     if ($it->product_variant_id) {
                         ProductVariant::whereKey($it->product_variant_id)->decrement('stock', $it->qty);
@@ -141,18 +157,31 @@ class CheckoutController extends Controller
                     Cart::where('user_id', $order->user_id)->first()?->items()->delete();
                 }
                 DB::afterCommit(fn () => OrderPaid::dispatch($order));
-            });
-        }
+            } elseif ((int) $request->status_code === 2) {
+                Log::alert('PayHere notify: amount mismatch', [
+                    'order' => $orderNumber,
+                    'expected' => number_format($order->total_cents / 100, 2, '.', ''),
+                    'got' => $request->payhere_amount,
+                    'currency' => $request->payhere_currency,
+                ]);
+            }
+        });
 
-        return response()->noContent();
+        return response('', 200);
     }
 
-    public function showBySession(string $session)
+    public function showByOrderNumber(Request $request, string $orderNumber)
     {
-        $order = Order::with('items')->where('stripe_session_id', $session)->firstOrFail();
+        $order = Order::with('items')->where('order_number', $orderNumber)->firstOrFail();
+
+        $authorized = ($request->user() && $order->user_id === $request->user()->id)
+            || ($request->query('token') && hash_equals((string) $order->view_token, (string) $request->query('token')));
+
+        abort_unless($authorized, 403, 'Unauthorized');
 
         return [
             'id' => $order->id,
+            'orderNumber' => $order->order_number,
             'status' => $order->status,
             'email' => $order->email,
             'subtotalCents' => $order->subtotal_cents,
@@ -168,17 +197,5 @@ class CheckoutController extends Controller
                 'customDesignId' => $it->custom_design_id,
             ])->values(),
         ];
-    }
-
-    protected function createStripeSession(array $params): object
-    {
-        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
-
-        return \Stripe\Checkout\Session::create($params);
-    }
-
-    protected function constructStripeEvent(string $payload, string $sigHeader, string $secret): object
-    {
-        return \Stripe\Webhook::constructEvent($payload, $sigHeader, $secret);
     }
 }

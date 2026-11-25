@@ -12,6 +12,8 @@ class OrderForm
     {
         return $schema
             ->components([
+                TextInput::make('order_number')->disabled(),
+                TextInput::make('payment_ref')->label('PayHere Ref')->disabled(),
                 TextInput::make('email')->email()->disabled(),
                 Select::make('status')
                     ->options([

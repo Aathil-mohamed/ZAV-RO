@@ -5,6 +5,7 @@ import { estimatePriceCents } from "@/lib/garments";
 import { viewerApi } from "@/lib/viewerApi";
 import { api } from "@/lib/api";
 import { useCart } from "@/store/cart";
+import { formatMoney } from "@/lib/money";
 import TryOnDialog from "./TryOnDialog";
 
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"] as const;
@@ -88,7 +89,7 @@ export default function ActionBar() {
   return (
     <>
       <div className="fixed bottom-0 inset-x-0 z-20 flex flex-wrap items-center gap-3 border-t bg-white px-4 py-3 shadow-lg md:static md:border-0 md:shadow-none md:bg-transparent">
-        <div className="text-lg font-bold">${(displayPrice / 100).toFixed(2)}<span className="ml-1 text-xs font-normal text-neutral-500">(estimate)</span></div>
+        <div className="text-lg font-bold">{formatMoney(displayPrice)}<span className="ml-1 text-xs font-normal text-neutral-500">(estimate)</span></div>
 
         <label className="flex items-center gap-1 text-sm">
           Size
