@@ -3,17 +3,62 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useCart } from "@/store/cart";
+import { useAuth } from "@/store/auth";
+import { api } from "@/lib/api";
 
 export default function BagDrawer() {
   const { open, lines: rawLines, toggle, setQty, remove, subtotalCents } = useCart();
+  const { user } = useAuth();
   const [mounted, setMounted] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [line1, setLine1] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("US");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (user) {
+      setEmail((e) => e || user.email);
+      setName((n) => n || user.name);
+    }
+  }, [user]);
+
   const lines = mounted ? rawLines : [];
   const subtotal = mounted ? subtotalCents() : 0;
+  const isLoggedIn = Boolean(user);
+
+  const handleCheckout = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await api<{ url: string }>("/api/checkout", {
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          shipping: { name, line1, city, postal_code: postalCode, country: country.toUpperCase() },
+          items: lines.map((l) => ({
+            variant_id: l.variantId ?? null,
+            custom_design_id: l.customDesignId ?? null,
+            size: l.size ?? null,
+            qty: l.qty,
+          })),
+        }),
+      });
+      window.location.href = res.url;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not start checkout.");
+      setBusy(false);
+    }
+  };
 
   return (
     <>
-      {/* Backdrop overlay */}
       {open && (
         <div
           onClick={() => toggle(false)}
@@ -22,7 +67,6 @@ export default function BagDrawer() {
         />
       )}
 
-      {/* Slide-out Drawer */}
       <aside
         aria-hidden={!open}
         aria-label="Your bag"
@@ -30,7 +74,6 @@ export default function BagDrawer() {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Header */}
         <header className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 px-6 py-4">
           <div className="flex items-center gap-2">
             <h2 className="text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
@@ -49,23 +92,9 @@ export default function BagDrawer() {
           </button>
         </header>
 
-        {/* Cart Item Lines */}
         <ul className="flex-1 space-y-4 overflow-y-auto px-6 py-5">
           {lines.length === 0 ? (
             <li className="flex flex-col items-center justify-center h-48 text-center text-sm text-neutral-500">
-              <svg
-                className="size-12 mb-3 text-neutral-300 dark:text-neutral-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                />
-              </svg>
               Your bag is currently empty.
             </li>
           ) : (
@@ -95,11 +124,10 @@ export default function BagDrawer() {
                   </div>
 
                   <div className="flex items-center justify-between mt-3">
-                    {/* Quantity Stepper */}
                     <div className="flex items-center gap-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 p-0.5 bg-neutral-50 dark:bg-neutral-800">
                       <button
                         aria-label="Decrease quantity"
-                        onClick={() => setQty(l.key, l.qty - 1)}
+                        onClick={() => setQty(l.key, l.qty - 1, isLoggedIn)}
                         className="flex size-6 items-center justify-center rounded text-xs font-semibold text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors"
                       >
                         −
@@ -109,7 +137,7 @@ export default function BagDrawer() {
                       </span>
                       <button
                         aria-label="Increase quantity"
-                        onClick={() => setQty(l.key, l.qty + 1)}
+                        onClick={() => setQty(l.key, l.qty + 1, isLoggedIn)}
                         className="flex size-6 items-center justify-center rounded text-xs font-semibold text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors"
                       >
                         +
@@ -117,7 +145,7 @@ export default function BagDrawer() {
                     </div>
 
                     <button
-                      onClick={() => remove(l.key)}
+                      onClick={() => remove(l.key, isLoggedIn)}
                       className="text-xs text-neutral-400 hover:text-rose-500 transition-colors underline"
                     >
                       Remove
@@ -129,20 +157,44 @@ export default function BagDrawer() {
           )}
         </ul>
 
-        {/* Footer */}
-        <footer className="space-y-4 border-t border-neutral-200 dark:border-neutral-800 px-6 py-5 bg-neutral-50/50 dark:bg-neutral-950/50">
+        <footer className="space-y-3 border-t border-neutral-200 dark:border-neutral-800 px-6 py-5 bg-neutral-50/50 dark:bg-neutral-950/50">
           <div className="flex justify-between text-sm">
             <span className="text-neutral-600 dark:text-neutral-400">Subtotal</span>
             <span className="font-bold text-neutral-900 dark:text-neutral-100">
               ${(subtotal / 100).toFixed(2)}
             </span>
           </div>
-          <button
-            disabled
-            className="w-full rounded-xl bg-neutral-900 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md disabled:opacity-40 disabled:cursor-not-allowed dark:bg-white dark:text-neutral-950"
-          >
-            Checkout (enabled in Phase 4)
-          </button>
+
+          {!checkoutOpen ? (
+            <button
+              type="button"
+              disabled={lines.length === 0}
+              onClick={() => setCheckoutOpen(true)}
+              className="w-full rounded-xl bg-neutral-900 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md disabled:opacity-40 disabled:cursor-not-allowed dark:bg-white dark:text-neutral-950"
+            >
+              Checkout
+            </button>
+          ) : (
+            <form onSubmit={handleCheckout} className="space-y-2 text-xs">
+              <input type="email" required placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <input type="text" required placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <input type="text" required placeholder="Address line 1" value={line1} onChange={(e) => setLine1(e.target.value)} className="w-full rounded border px-2.5 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+              <div className="grid grid-cols-3 gap-2">
+                <input type="text" required placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} className="rounded border px-2 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+                <input type="text" required placeholder="Postal" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="rounded border px-2 py-2 dark:border-neutral-700 dark:bg-neutral-800" />
+                <input type="text" required maxLength={2} placeholder="US" value={country} onChange={(e) => setCountry(e.target.value)} className="rounded border px-2 py-2 uppercase dark:border-neutral-700 dark:bg-neutral-800" />
+              </div>
+              {error && <p className="text-rose-600">{error}</p>}
+              <div className="flex gap-2">
+                <button type="button" onClick={() => setCheckoutOpen(false)} className="rounded-lg border px-3 py-2.5 font-semibold dark:border-neutral-700">
+                  Back
+                </button>
+                <button type="submit" disabled={busy} className="flex-1 rounded-lg bg-black py-2.5 font-bold uppercase tracking-wider text-white disabled:opacity-50 dark:bg-white dark:text-black">
+                  {busy ? "Redirecting…" : "Pay with Stripe"}
+                </button>
+              </div>
+            </form>
+          )}
         </footer>
       </aside>
     </>
